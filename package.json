@@ -4,6 +4,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "generate": "node src/scripts/generateProducts.js",
+    "get-products-by-min-price": "node src/scripts/getProductsByMinPrice.js",
+    "get-total-price": "node src/scripts/getTotalPrice.js",
+    "get-unique-categories": "node src/scripts/getUniqueCategories.js",
+    "modify-products": "node src/scripts/modifyProducts.js",
+    "group-products": "node src/scripts/groupProductsByCategories.js",
+    "create-products-files": "node src/scripts/createProductsFiles.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
