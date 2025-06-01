@@ -1,0 +1,27 @@
+{
+  "name": "js-blended",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Filbertik/node-js-blended.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Filbertik/node-js-blended/issues"
+  },
+  "homepage": "https://github.com/Filbertik/node-js-blended#readme",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@faker-js/faker": "^9.8.0",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0"
+  }
+}
