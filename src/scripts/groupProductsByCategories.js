@@ -1,35 +1,23 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readFile } from 'fs/promises';
+import { DB_PATH } from '../constants/products.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+async function groupProductsByCategories() {
+  const data = await readFile(DB_PATH, 'utf-8');
+  const grouped = {};
+  JSON.parse(data).forEach(({ category, name }) => {
+    grouped[category] = grouped[category] || [];
+    grouped[category].push(name);
+  });
+  return grouped;
+}
 
-const dbPath = path.resolve(__dirname, '../db/db.json');
-
-export function groupProductsByCategories() {
+async function main() {
   try {
-    const data = fs.readFileSync(dbPath, 'utf-8');
-    const db = JSON.parse(data);
-    const grouped = {};
-
-    db.forEach((product) => {
-      const { category, name } = product;
-
-      if (!grouped[category]) {
-        grouped[category] = [];
-      }
-      grouped[category].push(name);
-    });
-
-    return grouped;
-  } catch (error) {
-    console.error('Error reading db.json:', error);
-    return {};
+    console.log(await groupProductsByCategories());
+  } catch (err) {
+    console.error('Error of group:', err.message);
+    process.exit(1);
   }
 }
 
-if (process.argv[1].endsWith('groupProductsByCategories.js')) {
-  const grouped = groupProductsByCategories();
-  console.log('Grouped by categories:', grouped);
-}
+main();

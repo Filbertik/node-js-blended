@@ -1,25 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readFile } from 'fs/promises';
+import { DB_PATH } from '../constants/products.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.resolve(__dirname, '../db/db.json');
+async function getUniqueCategories() {
+  const data = await readFile(DB_PATH, 'utf-8');
+  return [...new Set(JSON.parse(data).map((p) => p.category))];
+}
 
-export function getUniqueCategories() {
+async function main() {
   try {
-    const data = fs.readFileSync(dbPath, 'utf-8');
-    const db = JSON.parse(data);
-
-    const categories = db.map((product) => product.category);
-    const uniqueCategories = [...new Set(categories)];
-
-    return uniqueCategories;
-  } catch (error) {
-    console.error('Error reading or db.json:', error);
-    return [];
+    console.log(await getUniqueCategories());
+  } catch (err) {
+    console.error('Error get categories:', err.message);
+    process.exit(1);
   }
 }
 
-const categories = getUniqueCategories();
-console.log('Unique categories:', categories);
+main();

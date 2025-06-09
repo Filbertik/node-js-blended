@@ -1,32 +1,29 @@
-import fs from 'fs';
-import path from 'path';
-import { PATH_FILES_DIR } from '../constants/products.js';
-import { fileURLToPath } from 'url';
+import { readFile, writeFile, mkdir } from 'fs/promises';
+import path from 'node:path';
+import { DB_PATH, PATH_FILES_DIR } from '../constants/products.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.resolve(__dirname, '../db/db.json');
+const toKebab = (s) => s.trim().toLowerCase().replace(/\s+/g, '-');
 
-export async function createProductsFiles() {
-  try {
-    const data = fs.readFileSync(dbPath, 'utf-8');
-    const db = JSON.parse(data);
-
-    if (!fs.existsSync(PATH_FILES_DIR)) {
-      fs.mkdirSync(PATH_FILES_DIR, { recursive: true });
-    }
-
-    for (const product of db.products) {
-      const fileName =
-        product.name.toLowerCase().split(' ').join('-') + '.json';
-      const filePath = path.join(PATH_FILES_DIR, fileName);
-      fs.writeFileSync(filePath, JSON.stringify(product, null, 2), 'utf-8');
-    }
-
-    console.log(`Created ${db.products.length} files in ${PATH_FILES_DIR}`);
-  } catch (error) {
-    console.error('Error creating product files:', error);
+async function createProductsFiles() {
+  await mkdir(PATH_FILES_DIR, { recursive: true });
+  const products = JSON.parse(await readFile(DB_PATH, 'utf-8'));
+  for (const prod of products) {
+    const fname = `${toKebab(prod.name)}.json`;
+    await writeFile(
+      path.join(PATH_FILES_DIR, fname),
+      JSON.stringify(prod, null, 2),
+    );
   }
 }
 
-createProductsFiles();
+async function main() {
+  try {
+    await createProductsFiles();
+    console.log(`Created fils in ${PATH_FILES_DIR}`);
+  } catch (err) {
+    console.error('Error create files:', err.message);
+    process.exit(1);
+  }
+}
+
+main();

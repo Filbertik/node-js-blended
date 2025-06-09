@@ -1,159 +1,97 @@
-{
-  "products": [
-    {
-      "name": "Practical Ceramic Chicken",
-      "price": "985.59",
-      "category": "Music"
-    },
-    {
-      "name": "Modern Granite Shirt",
-      "price": "533.20",
-      "category": "Tools"
-    },
-    {
-      "name": "Generic Cotton Sausages",
-      "price": "889.99",
-      "category": "Beauty"
-    },
-    {
-      "name": "Refined Plastic Bacon",
-      "price": "407.85",
-      "category": "Home"
-    },
-    {
-      "name": "Handmade Metal Cheese",
-      "price": "25.69",
-      "category": "Games"
-    },
-    {
-      "name": "Handmade Plastic Soap",
-      "price": "11.09",
-      "category": "Sports"
-    },
-    {
-      "name": "Refined Granite Table",
-      "price": "270.95",
-      "category": "Tools"
-    },
-    {
-      "name": "Rustic Granite Keyboard",
-      "price": "353.39",
-      "category": "Jewelry",
-      "description": "Our savory-inspired Towels brings a taste of luxury to your muddy lifestyle"
-    },
-    {
-      "name": "Fantastic Gold Tuna",
-      "price": "213.89",
-      "category": "Books",
-      "description": "Handcrafted Towels designed with Bamboo for happy-go-lucky performance"
-    },
-    {
-      "name": "Modern Aluminum Bacon",
-      "price": "955.00",
-      "category": "Movies",
-      "description": "Ergonomic Cheese made with Bronze for all-day deep support"
-    },
-    {
-      "name": "Small Gold Chair",
-      "price": "137.09",
-      "category": "Sports",
-      "description": "Savor the delicious essence in our Salad, designed for icy culinary adventures"
-    },
-    {
-      "name": "Rustic Ceramic Pizza",
-      "price": "438.49",
-      "category": "Games",
-      "description": "The Yasmin Fish is the latest in a series of skeletal products from Nienow, Medhurst and Mueller"
-    },
-    {
-      "name": "Generic Marble Towels",
-      "price": "611.55",
-      "category": "Tools",
-      "description": "Our tender-inspired Chicken brings a taste of luxury to your caring lifestyle"
-    },
-    {
-      "name": "Fantastic Wooden Tuna",
-      "price": "884.59",
-      "category": "Toys",
-      "description": "Professional-grade Bacon perfect for lanky training and recreational use"
-    },
-    {
-      "name": "Incredible Plastic Computer",
-      "price": "988.05",
-      "category": "Tools",
-      "description": "Featuring Titanium-enhanced technology, our Chicken offers unparalleled triangular performance"
-    },
-    {
-      "name": "Frozen Silk Keyboard",
-      "price": "411.39",
-      "category": "Movies",
-      "description": "The lavender Pants combines Guatemala aesthetics with Platinum-based durability"
-    },
-    {
-      "name": "Unbranded Plastic Hat",
-      "price": "242.70",
-      "category": "Shoes",
-      "description": "Featuring Roentgenium-enhanced technology, our Ball offers unparalleled fuzzy performance"
-    },
-    {
-      "name": "Sleek Concrete Table",
-      "price": "541.78",
-      "category": "Grocery",
-      "description": "New Shoes model with 3 GB RAM, 395 GB storage, and true features"
-    },
-    {
-      "name": "Unbranded Bamboo Soap",
-      "price": "268.55",
-      "category": "Jewelry",
-      "description": "Discover the junior new Table with an exciting mix of Aluminum ingredients"
-    },
-    {
-      "name": "Sleek Silk Shirt",
-      "price": "173.49",
-      "category": "Music",
-      "description": "Our juicy-inspired Towels brings a taste of luxury to your square lifestyle"
-    },
-    {
-      "name": "Tasty Metal Bacon",
-      "price": "701.79",
-      "category": "Electronics",
-      "description": "Innovative Chips featuring mundane technology and Bronze construction"
-    },
-    {
-      "name": "Oriental Steel Shirt",
-      "price": "876.95",
-      "category": "Books",
-      "description": "The Quality-focused zero tolerance paradigm Chicken offers reliable performance and slight design"
-    },
-    {
-      "name": "Fresh Steel Computer",
-      "price": "489.99",
-      "category": "Tools",
-      "description": "Innovative Mouse featuring massive technology and Steel construction"
-    },
-    {
-      "name": "Generic Plastic Salad",
-      "price": "192.30",
-      "category": "Books",
-      "description": "Featuring Carbon-enhanced technology, our Bacon offers unparalleled fearless performance"
-    },
-    {
-      "name": "Handcrafted Gold Bacon",
-      "price": "291.79",
-      "category": "Shoes",
-      "description": "Experience the plum brilliance of our Towels, perfect for male environments"
-    },
-    {
-      "name": "Intelligent Steel Bike",
-      "price": "741.15",
-      "category": "Tools",
-      "description": "The sleek and repentant Shirt comes with indigo LED lighting for smart functionality"
-    },
-    {
-      "name": "Refined Metal Pants",
-      "price": "152.19",
-      "category": "Industrial",
-      "description": "Innovative Bacon featuring overcooked technology and Wooden construction"
-    }
-  ]
-}
+[
+  {
+    "name": "Electronic Bronze Towels",
+    "price": "277.09",
+    "category": "Sports"
+  },
+  {
+    "name": "Sleek Metal Bike",
+    "price": "171.05",
+    "category": "Jewelry"
+  },
+  {
+    "name": "Bespoke Marble Mouse",
+    "price": "996.35",
+    "category": "Garden"
+  },
+  {
+    "name": "Frozen Wooden Keyboard",
+    "price": "278.20",
+    "category": "Baby"
+  },
+  {
+    "name": "Soft Cotton Keyboard",
+    "price": "411.79",
+    "category": "Kids"
+  },
+  {
+    "name": "Soft Concrete Pizza",
+    "price": "776.90",
+    "category": "Industrial"
+  },
+  {
+    "name": "Fantastic Cotton Keyboard",
+    "price": "388.18",
+    "category": "Health"
+  },
+  {
+    "name": "Ergonomic Metal Pants",
+    "price": "118.39",
+    "category": "Baby"
+  },
+  {
+    "name": "Handcrafted Gold Computer",
+    "price": "293.05",
+    "category": "Home"
+  },
+  {
+    "name": "Awesome Bronze Soap",
+    "price": "870.79",
+    "category": "Automotive"
+  },
+  {
+    "name": "Tasty Bronze Tuna",
+    "price": "451.89",
+    "category": "Grocery"
+  },
+  {
+    "name": "Electronic Concrete Mouse",
+    "price": "417.39",
+    "category": "Beauty"
+  },
+  {
+    "name": "Generic Metal Ball",
+    "price": "263.15",
+    "category": "Baby"
+  },
+  {
+    "name": "Practical Bamboo Shirt",
+    "price": "256.85",
+    "category": "Books"
+  },
+  {
+    "name": "Awesome Aluminum Soap",
+    "price": "336.32",
+    "category": "Home"
+  },
+  {
+    "name": "Refined Marble Gloves",
+    "price": "569.69",
+    "category": "Toys"
+  },
+  {
+    "name": "Licensed Concrete Keyboard",
+    "price": "574.35",
+    "category": "Industrial"
+  },
+  {
+    "name": "Fresh Ceramic Pizza",
+    "price": "948.95",
+    "category": "Automotive"
+  },
+  {
+    "name": "Elegant Metal Pants",
+    "price": "942.92",
+    "category": "Sports"
+  }
+]

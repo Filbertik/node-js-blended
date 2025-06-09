@@ -1,33 +1,24 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readFile } from 'fs/promises';
+import { DB_PATH } from '../constants/products.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.resolve(__dirname, '../db/db.json');
+async function getProductsByMinPrice(minPrice) {
+  const data = await readFile(DB_PATH, 'utf-8');
+  const products = JSON.parse(data);
 
-export function getProductsByMinPrice(minPrice) {
-  if (!Number.isFinite(minPrice) || minPrice < 0) {
-    console.error('Please provide a valid minimum price (positive number)');
-    return [];
-  }
+  return products.filter((p) => Number(p.price) >= minPrice);
+}
 
+async function main() {
   try {
-    const data = fs.readFileSync(dbPath, 'utf-8');
-    const db = JSON.parse(data);
+    const price = Number(process.argv[2] || 0);
+    const result = await getProductsByMinPrice(price);
 
-    const filtered = db.products.filter((product) => product.price >= minPrice);
-
-    return filtered;
-  } catch (error) {
-    console.error('Failed read db.json:', error);
-    return [];
+    console.log(`Products with price >= ${price}:`);
+    console.log(result);
+  } catch (err) {
+    console.error('Error', err.message);
+    process.exit(1);
   }
 }
 
-const args = process.argv.slice(2);
-const minPrice = parseFloat(args[0]);
-
-const result = getProductsByMinPrice(minPrice);
-console.log(`Products with price >= ${minPrice}:`);
-console.log(result);
+main();

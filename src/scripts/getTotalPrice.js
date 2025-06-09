@@ -1,26 +1,22 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readFile } from 'fs/promises';
+import { DB_PATH } from '../constants/products.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.resolve(__dirname, '../db/db.json');
+async function getTotalPrice() {
+  const data = await readFile(DB_PATH, 'utf-8');
+  const products = JSON.parse(data);
 
-export function getTotalPrice() {
+  const total = products.reduce((sum, p) => sum + Number(p.price), 0);
+  return total.toFixed(2);
+}
+
+async function main() {
   try {
-    const data = fs.readFileSync(dbPath, 'utf-8');
-    const db = JSON.parse(data);
-
-    // const total = db.products.reduce((sum, product) => sum + product.price, 0);
-    const total = db.reduce((sum, product) => sum + Number(product.price), 0);
-
-    return total;
-  } catch (error) {
-    console.error('Failed read db.json:', error);
-    return 0;
+    const total = await getTotalPrice();
+    console.log(`Total price: ${total}`);
+  } catch (err) {
+    console.error('Failed read db.json:', err.message);
+    process.exit(1);
   }
 }
 
-const totalPrice = getTotalPrice();
-// console.log(`Total price of all products: ${totalPrice}`);
-console.log(`Total price of all products: ${totalPrice.toFixed(2)} (Col)`);
+main();

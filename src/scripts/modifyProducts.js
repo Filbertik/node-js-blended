@@ -1,33 +1,20 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readFile, writeFile } from 'fs/promises';
+import { DB_PATH } from '../constants/products.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+async function modifyProducts() {
+  const data = await readFile(DB_PATH, 'utf-8');
+  const noDesc = JSON.parse(data).map(({ description, ...p }) => p);
+  await writeFile(DB_PATH, JSON.stringify(noDesc, null, 2));
+}
 
-const dbPath = path.resolve(__dirname, '../db/db.json');
-
-export function modifyProducts() {
+async function main() {
   try {
-    const data = fs.readFileSync(dbPath, 'utf-8');
-    const db = JSON.parse(data);
-
-    const modifiedProducts = db.map(({ description, ...rest }) => rest);
-
-    fs.writeFileSync(
-      dbPath,
-      JSON.stringify(modifiedProducts, null, 2),
-      'utf-8',
-    );
-
-    console.log(
-      `Modified was removed description from ${modifiedProducts.length} items.`,
-    );
-  } catch (error) {
-    console.error('Error read/write db.json:', error);
+    await modifyProducts();
+    console.log('Updated products, del description.');
+  } catch (err) {
+    console.error('Error modified:', err.message);
+    process.exit(1);
   }
 }
 
-if (process.argv[1].endsWith('modifyProducts.js')) {
-  modifyProducts();
-}
+main();
